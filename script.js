@@ -10,10 +10,10 @@ class Zeme {
   }
 }
 
-
-
+let text = document.getElementById("text");
 function reqListener() {
-  console.log(this.responseText);
+console.log(this.responseText);
+text.textContent = this.responseText;
 }
 
 const req = new XMLHttpRequest();
@@ -22,7 +22,7 @@ req.addEventListener("load", reqListener);
 req.send();
 
 function load() {
-    localStorage.setItem("data" , this.responseText);
+    localStorage.setItem("data" , text.textContent);
     }
 
     btn.addEventListener('click', load);
