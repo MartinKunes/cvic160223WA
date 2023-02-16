@@ -1,14 +1,16 @@
-class Zamestnanec {
-  constructor(id,name,position,salary,start_date,office,extn ) {
-    this.id = id;
-    this.name = name;
-    this.position = position;
-    this.salary = salary;
-    this.start_date = start_date;
-    this.office = office;
-    this.extn = extn;
+class Zeme {
+    constructor(IDNation,Nation,IDYear,Year,Population,Slugnation) {
+        this.IDNation = IDNation;
+        this.Nation = Nation;
+        this.IDYear = IDYear;
+        this.Year = Year;
+        this.Population = Population;
+        this.Slugnation = Slugnation;
+
   }
 }
+
+
 
 function reqListener() {
   console.log(this.responseText);
@@ -16,5 +18,17 @@ function reqListener() {
 
 const req = new XMLHttpRequest();
 req.addEventListener("load", reqListener);
-req.open("GET", "https://datatables.net/examples/ajax/data/objects.txt?_=1675073860460");
+ req.open("GET", "https://datausa.io/api/data?drilldowns=Nation&measures=Population");
 req.send();
+
+function load() {
+    localStorage.setItem("data" , this.responseText);
+    }
+
+    btn.addEventListener('click', load);
+
+
+
+
+
+
