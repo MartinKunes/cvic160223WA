@@ -16,19 +16,23 @@ console.log(this.responseText);
 text.textContent = this.responseText;
 }
 
+
+
+
+
+//vytvori data
+
 const req = new XMLHttpRequest();
 req.addEventListener("load", reqListener);
  req.open("GET", "https://datausa.io/api/data?drilldowns=Nation&measures=Population");
 req.send();
 
-function load() {
-    localStorage.setItem("data" , text.textContent);
+req.onload = (e) => {
+    let data = JSON.parse(req.responseText);
+
+    if (data == null || data == undefined || data == "") {
+        console.error("Error while parsing products from web");
+        return;
     }
-
-    btn.addEventListener('click', load);
-
-
-
-
-
+}
 
