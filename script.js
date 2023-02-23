@@ -25,8 +25,36 @@ class Produkty {
                 <h5 class="list-group-item">Price: ${this.price} $</h5>
    </div>
         <div class="card-body text-center">
-            <button type="button" class="btn btn-dark ">More</button>
-            
+     
+ 
+
+<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+More
+</button>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Gratuluji!!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Vyhrál jste nový elektornické zaøízení
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zavøít</button>
+        <button type="button" class="btn btn-primary">vyít si výhru</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
         </div>
         </div>
         `;
@@ -37,12 +65,17 @@ class Produkty {
         <tr>
             <th>${this.title}</th>
             <th>${this.description}</th>
+   <th>${this.category}</th>
+<th>${this.brand}</th>
+   <th>${this.rating}</th>
+ <th>${this.stock}</th>
+          <th>${this.discountPercentage}</th>
             <th>${this.price}</th>
-            <th>${this.discountPercentage}</th>
-            <th>${this.rating}</th>
-            <th>${this.stock}</th>
-            <th>${this.brand}</th>
-            <th>${this.category}</th>
+  
+           
+       
+            
+         
         </tr>
         `;
     }
@@ -180,7 +213,7 @@ class Catalog {
                 break;
 
             case "table":
-                html += ` <tr><th>Title</th><th>Description</th><th>Price</th><th>Discount</th><th>Rating</th><th>Stock</th><th>Brand</th><th>Category</th></tr>`;
+                html += ` <tr><th>Title</th><th>Description</th><th>Category</th><th>Brand</th><th>Rating</th><th>Stock</th><th>Discount</th><th>Price</th></tr>`;
                 this.products.forEach(product => {
                     html += product.getTableRowHTML();
                 });
